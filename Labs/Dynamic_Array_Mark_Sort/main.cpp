@@ -24,21 +24,29 @@ using namespace std;
 //Function Prototypes
 int *fillMod(int,int);
 void prntAry(int *,int,int);
-void markSrt (int *,int);
-
+void markSrt(int *,int);
+float mean(int [],int);
+float median(int [],int);
+int *mode(int [],int);
 //Execution begins here
 int main(int argc, char** argv) {
     //Seed the random number generator
     srand(static_cast<unsigned int>(time(0)));
+    //Declare Variables for mean,median and mode
+    float mean1,median1;
+    int mode2;
     //Declare and allocate the array
     int size=100;
-    int *array=fillMod(size,10);
+    int *array=fillMod(size,100);
     //Display the random the array
     prntAry(array,size,10);
     //Sort the array
     markSrt(array,size);
     //Print New Array
     prntAry(array,size,10);
+    //Printing out the mean
+    mean1=mean(array,size);
+    cout<<"The mean is "<<mean1<<endl;
     //Deallocate Memory
     delete []array;
     //Exit Stage right
@@ -100,4 +108,14 @@ int *fillMod(int n,int mod){
 }
     //return pointer
     return a;
+}
+
+float mean(int array[],int size ){
+    float total=0;
+    float mean;
+    for(int count=0;count<size;count++){
+        total+=array[size];
+    }
+    mean=total/size;
+    return mean;
 }

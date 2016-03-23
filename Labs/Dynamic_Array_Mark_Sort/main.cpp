@@ -47,6 +47,9 @@ int main(int argc, char** argv) {
     //Printing out the mean
     mean1=mean(array,size);
     cout<<"The mean is "<<mean1<<endl;
+    //Printing out the median
+    median1=median(array,size);
+    cout<<"The median is "<<median1<<endl;
     //Deallocate Memory
     delete []array;
     //Exit Stage right
@@ -103,7 +106,7 @@ int *fillMod(int n,int mod){
     //Declare and allocate memory
     int *a=new int[n];
     for(int i;i<n;i++){
-        a[i]=i%mod;
+        a[i]=rand()%mod+1;
     
 }
     //return pointer
@@ -118,4 +121,10 @@ float mean(int array[],int size ){
     }
     mean=total/size;
     return mean;
+}
+
+float median(int array[],int size ){
+    float median;
+    median=array[size/2];
+    return median;
 }

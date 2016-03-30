@@ -106,8 +106,8 @@ int *fillMod(int n,int mod){
     //Declare and allocate memory
     int *a=new int[n];
     for(int i;i<n;i++){
-        a[i]=rand()%90+10;
-    
+        a[i]=(rand()%mod)+10;
+        
 }
     //return pointer
     return a;

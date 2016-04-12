@@ -16,13 +16,14 @@ using namespace std;
 int *tstScr(int);
 void sortScr(int*,int);
 void scrAvg(int*,int);
+int *dplAry(int*,int);
 
 //Execution Begins here
 
 int main(int argc, char** argv) {
     //Declare the array and size
     int size;
-    int *array;
+    int *array,*newAry;
     char low;
     //Prompt user for inputs
     cout<<"This program takes test scores and sorts them, and averages them"<<
@@ -36,16 +37,28 @@ int main(int argc, char** argv) {
     //Drop the lowest test score
     cout<<"Do you wish to drop the lowest score? Y/N"<<endl;
     cin>>low;
+    //This is for dropping the lowest test score
     if('Y'){
-        
+        //Drop Lowest test score
+        newAry=dplAry(array,size); 
+        //Display the results
+       for(int i=0;i<size;i++){
+           cout<<newAry[i]<<" ";
+       }
+       //Taking the average of the test scores
+       scrAvg(newAry,size);
+       delete []newAry;
     }
-    //Display the results
-    for(int i=0;i<size;i++){
-        cout<<array[i]<<" ";
+    //This is for not dropping the lowest test score
+    else{
+        //Display the results
+        for(int i=0;i<size;i++){
+            cout<<array[i]<<" ";
+        }
+        //Taking the average of the test scores
+        scrAvg(array,size);
+        delete []array;
     }
-    //Taking the average of the test scores
-    scrAvg(array,size);
-    delete []array;
     return 0;
 }
 
@@ -83,6 +96,14 @@ void scrAvg(int*a,int s){
     total=acu/s;
     cout<<endl;
     cout<<"The total average is "<<total<<endl;
+}
+
+int *dplAry(int*a,int s){
+    int*newAry=new int[s];
+    for(int i=0;i<s;i++){
+        newAry[i]=a[i+1];
+    }
+    return newAry;
 }
 
 

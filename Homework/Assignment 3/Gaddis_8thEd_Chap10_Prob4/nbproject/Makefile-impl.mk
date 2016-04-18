@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BattleShip_V3
+PROJECTNAME=Gaddis_8thEd_Chap10_Prob4
 
 # Active Configuration
 DEFAULTCONF=Debug

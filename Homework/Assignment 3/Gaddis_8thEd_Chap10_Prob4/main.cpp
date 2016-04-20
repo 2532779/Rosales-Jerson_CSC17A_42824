@@ -14,6 +14,7 @@ using namespace std;
 
 //Function Prototypes
 int numWrd(char *);
+int avgLet(char *);
 //Execution begins here
 int main(int argc, char** argv) {
     //Declare Variables
@@ -25,18 +26,29 @@ int main(int argc, char** argv) {
     cout<<"Type in your sentence"<<endl;
     cin.getline(name,size);//Asking user for the sentence
     cout<<"The number of words in the sentence is "<<numWrd(name)<<endl;
+    cout<<"The average number of letters in each word is "<<avgLet(name)/numWrd(name)<<endl;
     
     return 0;
 }
 
-int numWrd(char *name){
+int numWrd(char *n){
     //Declare Variables
     //Set the Accumulator
     int freq=0;
-    while(*name!='/0'){
-        if(*name=' '||*name='/0')
+    while(*n!='\0'){
+        if(*n==' '||*n=='\0')
             freq++;
-        *name++;
+        *n++;
     }
-    return freq;
+    return freq+1;
+}
+
+int avgLet(char *n){
+   int freq=0;
+    while(*n!='\0'){
+        if(*n!=' '||*n!='\0')
+            freq++;
+        *n++;
+    }
+    return freq; 
 }

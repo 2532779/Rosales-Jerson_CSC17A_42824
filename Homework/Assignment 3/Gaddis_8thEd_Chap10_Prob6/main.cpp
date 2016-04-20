@@ -14,8 +14,8 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-int numWrd(char *);
-int avgLet(char *);
+int numVow(char *);
+int numCons(char *);
 //Execution begins here
 int main(int argc, char** argv) {
     //Declare Variables
@@ -34,14 +34,18 @@ int main(int argc, char** argv) {
        cout<<"D - Enter another string"<<endl;
        cout<<"E - Exit the program"<<endl;
        cin>>input;
-       switch(input){
+       switch(toupper(input)){
            case 'A':{
+               cout<<"The number of vowels is "<<numVow(name)<<endl;
                break;
            }
            case 'B':{
+               cout<<"The number of consonants is "<<numCons(name)<<endl;
                break;
            }
            case 'C':{
+               cout<<"The number of vowels is "<<numVow(name)<<endl;
+               cout<<"The number of consonants is "<<numCons(name)<<endl;
                break;
            }
            case 'D':{
@@ -56,22 +60,22 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-int numWrd(char *n){
+int numVow(char *n){
     //Declare Variables
     //Set the Accumulator
     int freq=0;
     while(*n!='\0'){
-        if(*n==' '||*n=='\0')
+        if(*n=='a'||*n=='e'||*n=='i'||*n=='o'||*n=='u')
             freq++;
         *n++;
     }
-    return freq+1;
+    return freq;
 }
 
-int avgLet(char *n){
+int numCons(char *n){
    int freq=0;
     while(*n!='\0'){
-        if(*n!=' '||*n!='\0')
+        if(*n!=' '||*n!='\0'||*n=='a'||*n=='e'||*n=='i'||*n=='o'||*n=='u')
             freq++;
         *n++;
     }
